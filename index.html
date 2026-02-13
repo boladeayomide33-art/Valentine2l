@@ -195,7 +195,7 @@ const message=`Welcome to the world where only you and I exists hahaha. I made t
 Our beautiful love story , started 28 2024 September ❤️, Even when we had different things in mind ,not knowing we will become a very important piece in our lives.
 Every moment we spent since September 28 2024 , every moment count and feels great to be with you ❤️,  love comes in the least time we don't expect,  I do believe God have a reason for bringing us together ❤️,  when it got to you , everything about me changed starting from the way I chat , talk ,interact ,every single aspect of my life. Me as an individual, I always love and want to be different,  I want to be different in every aspect of my life. I always wanted to do what someone around me haven't done before, like make a difference. You know how sweet it would be telling people about our love story? How we meet ? About our silly fights? Like telling every single details of it , giving motivation to others? Everything is in God's hands but we have to play our part.
 We have to disagree to agree ,I understand what you're trying to on Wednesday.  I understand better and i understand now that you are saying it for us , it won't happen again. Let's work on our anger,our communication we need to do better. You taught me alot of things ,one of it is to talk about what's wrong or what's happening with each other, let's stand on it please. Let's learn to talk things out, I have never fought or have issues with you ,just to prove you wrong. I love to talk things out so it will end right there
-Love teaches,love corrects, love guide , love forgives , the sad part ,the fun part , the adventures part , regardless of it all
+Love teaches,love corrects, love guide , love forgives , the sad part ,the fun part ,the adventures part , regardless of it all
 LOVE IS THE GREATEST OF ALL ♥️❤️😔.
 I'm typing this at 11am February 12
 I love you so so so much ,I really want us to grow and be TOGETHER  no matter what life brings or offer 💛
@@ -250,7 +250,6 @@ const loveMessages=[
 function createHeart(){
   const h=document.createElement('div');
   h.className='heart';
-  // appear randomly over the text of reasons
   const reasonParas=document.querySelectorAll('#loveReasonsContainer p');
   const randomPara=reasonParas[Math.floor(Math.random()*reasonParas.length)];
   const rect=randomPara.getBoundingClientRect();
@@ -264,7 +263,6 @@ function createHeart(){
 }
 setInterval(createHeart,500);
 
-/* Hearts follow cursor occasionally */
 document.body.addEventListener('mousemove', e=>{
  if(Math.random()<0.02){
   const h=document.createElement('div');
@@ -300,4 +298,4 @@ function yesValentine(){
 }
 </script>
 </body>
-  </html>
+</html>
