@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine For Tioluwanimi ❤️</title>
+<style>
+body{
+  margin:0;
+  font-family:Georgia, serif;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  background:#ffe6f0;
+}
+
+/* Pages setup */
+.page{
+  position:fixed;
+  top:0;
+  left:100%;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:50px;
+  box-sizing:border-box;
+  transition:left 0.7s ease;
+  overflow-y:auto;
+}
+.page.active{left:0;}
+.container{
+  width:90%;
+  max-width:850px;
+  padding:25px;
+  background:white;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  margin-bottom:50px;
+}
+button{
+  padding:12px 22px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+  background:#e91e63;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* Hearts */
+.heart{
+  position:absolute;
+  width:20px;height:20px;
+  background:red;
+  transform:rotate(45deg);
+  animation:floatUp linear infinite;
+  cursor:pointer;
+  z-index:1;
+}
+.heart:before,.heart:after{
+  content:'';position:absolute;width:20px;height:20px;
+  background:red;border-radius:50%;
+}
+.heart:before{top:-10px;}
+.heart:after{left:10px;}
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(45deg);}
+  100%{transform:translateY(-800px) rotate(45deg);opacity:0;}
+}
+
+/* Confetti */
+.confetti{
+  position:absolute;width:8px;height:8px;
+  animation:fall 3s linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(800px) rotate(720deg);opacity:0;}
+}
+
+#noBtn{position:absolute;}
+@media (max-width:600px){
+  .container{font-size:16px;padding:15px;}
+  h1,h2{font-size:20px;}
+  .heart{width:15px;height:15px;}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+  <div class="container">
+    <h1>Happy Valentine Tioluwanimi ❤️</h1>
+    <p>Welcome to a world where only you and I exist. This is from my heart to yours.</p>
+    <button onclick="nextPage(2)">Start</button>
+  </div>
+</div>
+
+<!-- PAGE 2 TYPEWRITER -->
+<div class="page" id="p2">
+  <div class="container">
+    <h2>From My Heart 💌</h2>
+    <p id="typingStatus">Mobolade is typing...</p>
+    <p id="letter" style="text-align:left;line-height:1.8;"></p>
+    <button onclick="nextPage(3)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 3 MEMORIES -->
+<div class="page" id="p3">
+  <div class="container">
+    <h2>Our Memories</h2>
+    <p>Every moment since September 28, 2024 has been a treasure I keep in my heart. ❤️</p>
+    <button onclick="nextPage(4)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 4 WHY I LOVE YOU -->
+<div class="page" id="p4">
+  <div class="container" id="loveReasonsContainer">
+    <h2>50 Reasons Why I Love You 💖</h2>
+    <button onclick="nextPage(5)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 5 COMPLIMENTS -->
+<div class="page" id="p5">
+  <div class="container">
+    <h2>Compliments</h2>
+    <p>Your smile, your heart, and your presence make everything perfect.</p>
+    <button onclick="nextPage(6)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 6 OUR STORY -->
+<div class="page" id="p6">
+  <div class="container">
+    <h2>Our Story</h2>
+    <p>We learned, we grew, we loved. Every fight and laugh made us stronger. 💛</p>
+    <button onclick="nextPage(7)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 7 VIDEO -->
+<div class="page" id="p7">
+  <div class="container">
+    <h2>Our Video 🎥</h2>
+    <video width="100%" controls>
+      <source src="my_love.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>Click play to watch our special moments 💖</p>
+    <button onclick="nextPage(8)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 8 HEART INTERACTIONS -->
+<div class="page" id="p8">
+  <div class="container">
+    <h2>Tap the Hearts ❤️</h2>
+    <p>Tap any floating heart to see hidden love messages.</p>
+    <button onclick="nextPage(9)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 9 WILL YOU BE MY VALENTINE -->
+<div class="page" id="p9">
+  <div class="container">
+    <h2>Will You Be My Valentine? 💖</h2>
+    <button onclick="yesValentine()">Yes ❤️</button>
+    <button id="noBtn">No</button>
+  </div>
+</div>
+
+<!-- PAGE 10 FOREVER -->
+<div class="page" id="p10">
+  <div class="container">
+    <h2>Forever With You ❤️</h2>
+    <p>I love you endlessly, Tioluwanimi. 💖</p>
+  </div>
+</div>
+
+<script>
+let current=1;
+function nextPage(n){
+  document.getElementById('p'+current).classList.remove('active');
+  current=n;
+  document.getElementById('p'+current).classList.add('active');
+}
+
+/* FULL original typewriter message */
+const message=`Welcome to the world where only you and I exists hahaha. I made this when we broke up, regards of what happen ,I'll send it to you.
+Our beautiful love story , started 28 2024 September ❤️, Even when we had different things in mind ,not knowing we will become a very important piece in our lives.
+Every moment we spent since September 28 2024 , every moment count and feels great to be with you ❤️,  love comes in the least time we don't expect,  I do believe God have a reason for bringing us together ❤️,  when it got to you , everything about me changed starting from the way I chat , talk ,interact ,every single aspect of my life. Me as an individual, I always love and want to be different,  I want to be different in every aspect of my life. I always wanted to do what someone around me haven't done before, like make a difference. You know how sweet it would be telling people about our love story? How we meet ? About our silly fights? Like telling every single details of it , giving motivation to others? Everything is in God's hands but we have to play our part.
+We have to disagree to agree ,I understand what you're trying to on Wednesday.  I understand better and i understand now that you are saying it for us , it won't happen again. Let's work on our anger,our communication we need to do better. You taught me alot of things ,one of it is to talk about what's wrong or what's happening with each other, let's stand on it please. Let's learn to talk things out, I have never fought or have issues with you ,just to prove you wrong. I love to talk things out so it will end right there
+Love teaches,love corrects, love guide , love forgives , the sad part ,the fun part , the adventures part , regardless of it all
+LOVE IS THE GREATEST OF ALL ♥️❤️😔.
+I'm typing this at 11am February 12
+I love you so so so much ,I really want us to grow and be TOGETHER  no matter what life brings or offer 💛
+I love you so much Adumaadan mi 💓 ❤️`;
+
+let i=0;
+function type(){
+ if(i<message.length){
+   document.getElementById('letter').innerHTML += message[i]==="\n"?"<br><br>":message[i];
+   i++;
+   setTimeout(type,25);
+ }else{
+   document.getElementById('typingStatus').innerText="Message delivered ❤️";
+ }
+}
+type();
+
+/* 50 Reasons Why I Love You */
+const reasons=[
+"1. You make me smile every day.","2. Your laughter is contagious.","3. You always know how to cheer me up.",
+"4. Your kindness inspires me.","5. You understand me like no one else.","6. You make ordinary moments extraordinary.",
+"7. Your hugs feel like home.","8. You listen to me patiently.","9. You have the most beautiful heart.",
+"10. You are my favorite thought.","11. You encourage me to be better.","12. You make me feel safe.",
+"13. You are my biggest support.","14. You care about everyone around you.","15. Your love is unconditional.",
+"16. You brighten every room you enter.","17. Your smile melts my heart.","18. You forgive easily and teach me to forgive.",
+"19. You are thoughtful and loving.","20. You make me laugh until I cry.","21. You challenge me in the best ways.",
+"22. Your eyes are mesmerizing.","23. You make life feel magical.","24. You have an amazing sense of humor.",
+"25. You are so creative.","26. You believe in me when I doubt myself.","27. You make sacrifices without complaint.",
+"28. You are my peace in chaos.","29. You make me feel valued.","30. You are my favorite adventure.",
+"31. You always remember little things.","32. You are honest and genuine.","33. You make me feel loved every day.",
+"34. You are thoughtful and caring.","35. You are my motivation.","36. You are my dream come true.",
+"37. You inspire me to be better.","38. You are my safe place.","39. You have a beautiful soul.",
+"40. You make the world brighter.","41. You are my sunshine on cloudy days.","42. You support me endlessly.",
+"43. You are my forever.","44. You make me feel special.","45. You love me exactly as I am.",
+"46. You give the best advice.","47. You make me feel complete.","48. You are my partner in everything.",
+"49. You make love feel effortless.","50. You are my everything, Tioluwanimi ❤️"
+];
+const container=document.getElementById('loveReasonsContainer');
+reasons.forEach(r=>{
+  const p=document.createElement('p');
+  p.innerText=r;
+  container.insertBefore(p,container.querySelector('button'));
+});
+
+/* Floating hearts over reasons and other pages */
+const loveMessages=[
+ "I love you ❤️","You are my sunshine 🌞","You complete me 💛","Tioluwanimi 💖",
+ "My joy 😍","Forever yours 💌","My heart beats for you 💓","You are my dream ✨",
+ "Every moment with you is magic 🌹","You make me smile 😘","My soul loves you ❤️",
+ "You are perfect to me 💕","You are my miracle 🌟","I cherish you 🥰","You are my everything 💖"
+];
+function createHeart(){
+  const h=document.createElement('div');
+  h.className='heart';
+  // appear randomly over the text of reasons
+  const reasonParas=document.querySelectorAll('#loveReasonsContainer p');
+  const randomPara=reasonParas[Math.floor(Math.random()*reasonParas.length)];
+  const rect=randomPara.getBoundingClientRect();
+  h.style.left=(rect.left + Math.random()*rect.width)+'px';
+  h.style.top=(rect.top + Math.random()*rect.height + window.scrollY)+'px';
+  h.style.width=h.style.height=(10+Math.random()*20)+'px';
+  h.style.animationDuration=(4+Math.random()*6)+'s';
+  h.onclick=()=>alert(loveMessages[Math.floor(Math.random()*loveMessages.length)]);
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+}
+setInterval(createHeart,500);
+
+/* Hearts follow cursor occasionally */
+document.body.addEventListener('mousemove', e=>{
+ if(Math.random()<0.02){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.style.left=e.clientX+'px';
+  h.style.top=e.clientY+'px';
+  h.style.width=h.style.height='15px';
+  h.style.animationDuration=(4+Math.random()*6)+'s';
+  h.onclick=()=>alert(loveMessages[Math.floor(Math.random()*loveMessages.length)]);
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+ }
+});
+
+/* Moving No button */
+const noBtn=document.getElementById('noBtn');
+noBtn.onmouseenter=function(){
+ noBtn.style.top=Math.random()*70+'%';
+ noBtn.style.left=Math.random()*70+'%';
+}
+
+/* Confetti on Yes */
+function yesValentine(){
+ for(let i=0;i<80;i++){
+  const c=document.createElement('div');
+  c.className='confetti';
+  c.style.left=Math.random()*window.innerWidth+'px';
+  c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+  document.body.appendChild(c);
+  setTimeout(()=>c.remove(),3000);
+ }
+ nextPage(10);
+}
+</script>
+</body>
+  </html>
